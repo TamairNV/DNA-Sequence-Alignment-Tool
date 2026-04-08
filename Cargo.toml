@@ -1,0 +1,10 @@
+[package]
+name = "Bio"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rand = "0.8"
+rayon = "1.11.0"
+rustc-hash = "2.1.0"
+radsort = "0.1.1"
