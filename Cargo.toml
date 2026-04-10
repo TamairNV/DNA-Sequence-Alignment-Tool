@@ -3,8 +3,18 @@ name = "Bio"
 version = "0.1.0"
 edition = "2024"
 
+[profile.release]
+opt-level = 3        # Maximum optimization (this is the default, but good to be explicit)
+lto = "fat"          # Link Time Optimization: Optimizes across all your dependencies
+codegen-units = 1    # Forces the compiler to view the whole program at once, finding better shortcuts
+panic = "abort"      # Removes the "stack unwinding" code, making the binary smaller and slightly faster
+
 [dependencies]
 rand = "0.8"
 rayon = "1.11.0"
 rustc-hash = "2.1.0"
 radsort = "0.1.1"
+needletail = "0.7.2"
+
+indicatif = { version = "0.17", features = ["rayon"] }
+mimalloc = "0.1.48"
